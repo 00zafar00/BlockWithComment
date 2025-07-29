@@ -2,7 +2,7 @@
 
 {% block content %}
   <!-- <h1>Post</h1> -->
-<button class="btn btn-primary" type="submit">Create Post</button>
+<a href="{% url 'post:post_create' %}" class="btn btn-primary">Create Post</a>
   <ul>
     {% for post in posts %}
         <li class="tweet">
@@ -12,6 +12,27 @@
             <div class="tweet-info">
                 <strong>{{ post.user.username }}</strong>
                 <span class="timestamp">{{ post.created_at }}</span>
+
+        <!-- <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#">Dropdown</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><hr class="dropdown-divider" /></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </li> -->
+
+                <div class="post-dropdown">
+                    <a class="post-dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+                        <span>⋯</span>
+                    </a>
+                    <ul class="post-dropdown-menu">
+                        <li><a class="dropdown-item" href="{% url 'post:post_edit' post.id %}">Edit</a></li>
+                        <li><a class="dropdown-item" href="{% url 'post:post_delete' post.id %}">Delete</a></li>
+                    </ul>
+                </div>
+
             </div>
             <p class="tweet-content">{{ post.content }}</p>
             {% if post.image %}
@@ -20,7 +41,6 @@
                 </div>
             {% endif %}
             
-            <!-- Like & Comment Buttons -->
             <div class="tweet-actions">
                 <button class="tweet-action-btn comment-btn">
                     <svg class="tweet-action-icon" viewBox="0 0 24 24">

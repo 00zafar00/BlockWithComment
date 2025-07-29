@@ -75,6 +75,54 @@ body {
 }
 
 /* Dropdown */
+
+/* .dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0 8px;
+    color: #657786;
+    font-size: 18px;
+}
+
+.dropdown-toggle:hover {
+    color: #1da1f2;
+}
+
+.dropdown-menu {
+    position: absolute;
+    right: 0;
+    top: 100%;
+    background: white;
+    border: 1px solid #e1e8ed;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    min-width: 120px;
+    padding: 8px 0;
+    z-index: 100;
+    display: none;
+}
+
+.dropdown-menu.show {
+    display: block;
+}
+
+.dropdown-item {
+    display: block;
+    padding: 8px 16px;
+    color: #1c1e21;
+    text-decoration: none;
+}
+
+.dropdown-item:hover {
+    background-color: #f5f8fa;
+} */
+
 .nav-item.dropdown {
   position: relative;
 }
@@ -336,3 +384,220 @@ body {
     padding: 12px 24px;
     font-size: 18px;
 }
+
+/* Card Container */
+  .form-card {
+    max-width: 600px;
+    margin: 20px auto;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+
+  /* Header */
+  .form-header {
+    padding: 16px;
+    border-bottom: 1px solid #e5e5e5;
+  }
+
+  .form-header h2 {
+    margin: 0;
+    color: #1d2129;
+    font-size: 20px;
+    font-weight: 600;
+  }
+
+  /* Form Styling */
+  .post-form {
+    padding: 16px;
+  }
+
+  .form-group {
+    margin-bottom: 16px;
+  }
+
+  .form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #606770;
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  /* Text Input Styling */
+  .form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #dddfe2;
+    border-radius: 6px;
+    font-size: 16px;
+    resize: vertical;
+    min-height: 100px;
+    transition: border-color 0.2s;
+  }
+
+  .form-group textarea:focus {
+    border-color: #1877f2;
+    outline: none;
+    box-shadow: 0 0 0 2px #e7f3ff;
+  }
+
+  /* File Upload Styling */
+  .file-upload {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .file-upload input[type="file"] {
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+  }
+
+  .upload-text {
+    display: inline-block;
+    padding: 8px 12px;
+    background: #f5f6f7;
+    border: 1px dashed #dddfe2;
+    border-radius: 6px;
+    color: #4b4f56;
+  }
+
+  .upload-icon {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%234b4f56'%3E%3Cpath d='M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z'/%3E%3C/svg%3E") no-repeat center;
+    margin-right: 8px;
+    vertical-align: middle;
+  }
+
+  /* Submit Button */
+  .btn-submit {
+    background: #1877f2;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 24px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+
+  .btn-submit:hover {
+    background: #166fe5;
+  }
+
+
+  /* Dropdown Container */
+.post-dropdown {
+    position: relative;
+    display: inline-block;
+    margin-left: auto; /* Push to the right */
+}
+
+/* Three dots button */
+.post-dropdown-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0 8px;
+    color: #657786;
+    font-size: 18px;
+    outline: none;
+}
+
+.post-dropdown-toggle:hover {
+    color: #1da1f2;
+}
+
+/* Dropdown Menu */
+.post-dropdown-menu {
+    position: absolute;
+    right: 0;
+    top: 100%;
+    background: white;
+    border: 1px solid #e1e8ed;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    min-width: 120px;
+    padding: 8px 0;
+    z-index: 100;
+    display: none;
+}
+
+.post-dropdown-menu.show {
+    display: block;
+}
+
+/* Dropdown Items */
+.dropdown-item {
+    display: block;
+    padding: 8px 16px;
+    color: #1c1e21;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.dropdown-item:hover {
+    background-color: #f5f8fa;
+}
+
+ .file-upload {
+        margin: 20px 0;
+        position: relative;
+    }
+    
+    #id_image {
+        display: none;
+    }
+    
+    .upload-label {
+        cursor: pointer;
+    }
+    
+    .image-preview {
+        max-width: 100%;
+        max-height: 300px;
+        border-radius: 8px;
+        display: block;
+    }
+    
+    .image-upload-area {
+        width: 100%;
+        padding: 40px 20px;
+        border: 2px dashed #ddd;
+        border-radius: 8px;
+        text-align: center;
+        transition: all 0.3s ease;
+    }
+    
+    .image-upload-area:hover {
+        border-color: #1da1f2;
+    }
+    
+    .fa-cloud-upload-alt {
+        font-size: 40px;
+        color: #657786;
+        margin-bottom: 10px;
+    }
+    
+    .upload-instruction {
+        display: block;
+        color: #657786;
+        font-size: 16px;
+    }
+    
+    .file-name {
+        display: block;
+        margin-top: 10px;
+        color: #1da1f2;
+        font-weight: bold;
+        word-break: break-all;
+    }
