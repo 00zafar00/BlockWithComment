@@ -18,3 +18,15 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
+
+document.querySelectorAll('.like-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+        this.classList.toggle('liked');
+        const countEl = this.querySelector('.tweet-action-count');
+        if (this.classList.contains('liked')) {
+            countEl.textContent = parseInt(countEl.textContent) + 1;
+        } else {
+            countEl.textContent = parseInt(countEl.textContent) - 1;
+        }
+    });
+});
