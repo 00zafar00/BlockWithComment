@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="form-card">
+  <div class="form-header">
+    <h2>Create Post</h2>
+  </div>
+  
+  <form method="post" enctype="multipart/form-data"  class="post-form">
+    {% csrf_token %}
+  
+
+
+    <div class="form-group">
+      <label for="{{ form.title.id_for_label }}" >What's the Title?</label>
+      {{ form.title }}
+    </div>
+    <div class="form-group">
+      <label for="{{ form.content.id_for_label }}" >What's on your mind?</label>
+      {{ form.content }}
+    </div>
+
+    <div class="form-group">
+      <label for="{{ form.tags.id_for_label }}">Add Tags?</label>
+      {{ form.tags }}
+    </div>
+
+    <div class="form-group">
+      <label for="{{ form.image.id_for_label }}">Add Image</label>
+      <div class="file-upload">
+        {% if form.image.value %}
+            <!-- Show existing image if available -->
+            <!-- <img src="{{ form.image.value.url }}" 
+                 alt="Current Image" 
+                 class="selected-image"
+                 > -->
+                 <div class="image-upload-area" id="image-upload-area">
+                <i class="fas fa-cloud-upload-alt">
+                  <img src="{{ form.image.value.url }}" 
+                 alt="Current Image" 
+                 class="selected-image"
+                  style="max-height: 200px; max-width: 100%; object-fit: contain;"
+                 >
+                </i>
+                <span class="file-name" id="file-name-display"></span>
+            </div>
+            
+        {% else %}
+            <!-- Show placeholder if no image exists -->
+            <!-- <div class="image-placeholder" id="image-preview">
+                <i class="upload-icon"></i>
+                <span>Choose Image</span>
+            </div> -->
+            <!-- <div class="image-upload-area" id="image-upload-area">
+                <i class="fas fa-cloud-upload-alt"></i>
+                <span class="upload-instruction">Choose Image</span>
+                <span class="file-name" id="file-name-display"></span>
+            </div> -->
+            
+        {% endif %}
+        {{ form.image }}
+            <span class="upload-text">
+                <i class="upload-icon"></i> Choose Image
+            </span>
+            <div class="image-upload-area" id="image-upload-area">
+                <i class="fas fa-cloud-upload-alt"></i>
+                <span class="file-name" id="file-name-display"></span>
+            </div>
+    </div>
+    </div>
+    
+    
+    <div class="form-actions">
+      <button type="submit" class="btn-submit">
+        {% if form.instance.pk %}
+            Update Post
+        {% else %}
+            Create Post
+        {% endif %}
+        </button>
+         <a href="{% url 'post:post_list' %}" class="btn btn-primary">
+        Cancel
+      </a>
+    </div>
+    <div class="form-actions">
+     
+    </div>
+  </form>
+</div>
+
+{% endblock %}

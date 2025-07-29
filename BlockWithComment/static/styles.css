@@ -1,0 +1,603 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: rgba(54, 85, 99, 0.829) !important;
+}
+
+.navbar {
+  background-color: #3f5972;
+  border-bottom: 1px solid #ccc;
+}
+.navbar a {
+  text-decoration: none;
+  color: #fff;
+}
+.navbar a:hover {
+  color: #4597e4;
+}
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+
+.navbar-toggler {
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: none;
+}
+
+.navbar-collapse {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.navbar-nav {
+  display: flex;
+  list-style: none;
+  gap: 1rem;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #333;
+  padding: 0.5rem 0.75rem;
+}
+
+.nav-link.active {
+  font-weight: bold;
+}
+
+.nav-link.disabled {
+  color: #aaa;
+  pointer-events: none;
+}
+
+/* Dropdown */
+
+/* .dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0 8px;
+    color: #657786;
+    font-size: 18px;
+}
+
+.dropdown-toggle:hover {
+    color: #1da1f2;
+}
+
+.dropdown-menu {
+    position: absolute;
+    right: 0;
+    top: 100%;
+    background: white;
+    border: 1px solid #e1e8ed;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    min-width: 120px;
+    padding: 8px 0;
+    z-index: 100;
+    display: none;
+}
+
+.dropdown-menu.show {
+    display: block;
+}
+
+.dropdown-item {
+    display: block;
+    padding: 8px 16px;
+    color: #1c1e21;
+    text-decoration: none;
+}
+
+.dropdown-item:hover {
+    background-color: #f5f8fa;
+} */
+
+.nav-item.dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  background: rgb(47, 65, 97);
+  border: 1px solid #13174d;
+  min-width: 200px;
+  list-style: none;
+  padding: 0.5rem 0;
+  z-index: 1000;
+}
+
+.dropdown-menu.show {
+  display: block;
+}
+
+.dropdown-item {
+  padding: 0.5rem 1rem;
+  display: block;
+  color: #333;
+  text-decoration: none;
+}
+
+.dropdown-item:hover {
+  background-color: #242d64;
+}
+
+.dropdown-divider {
+  height: 1px;
+  background-color: #171522;
+  margin: 0.5rem 0;
+}
+
+/* Search Form */
+.search-form {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.search-form input {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.search-form button {
+  padding: 0.5rem 1rem;
+  background: green;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .navbar-toggler {
+    display: block;
+  }
+
+  .navbar-collapse {
+    display: none;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    margin-top: 1rem;
+  }
+
+  .navbar-collapse.show {
+    display: flex;
+  }
+
+  .navbar-nav {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .search-form {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .search-form input,
+  .search-form button {
+    width: 100%;
+  }
+}
+.tweet {
+    list-style: none;
+    border: 1px solid #e1e8ed;
+    border-radius: 12px;
+    padding: 15px;
+    margin: 10px auto;
+    max-width: 100%;
+    width: 100%;
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    box-sizing: border-box;
+}
+
+@media (min-width: 500px) {
+    .tweet {
+        max-width: 500px;
+    }
+}
+
+.tweet-header {
+    display: flex;
+    align-items: flex-start;
+}
+
+.avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 12px;
+    flex-shrink: 0;
+}
+
+.tweet-body {
+    flex: 1;
+}
+
+.tweet-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.timestamp {
+    color: #657786;
+    font-size: 12px;
+}
+
+.tweet-content {
+    margin: 6px 0;
+    word-wrap: break-word;
+}
+
+.tweet-image {
+    width: 100%;
+    max-height: 250px; /* Adjust as needed */
+    height: auto;
+    border-radius: 12px;
+    margin-top: 8px;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+/* Optional: Mobile adjustment */
+@media (max-width: 500px) {
+    .tweet-image {
+        max-height: 200px;
+    }
+}
+.tweet-media {
+    max-height: 250px;
+    overflow: hidden;
+    border-radius: 12px;
+    margin-top: 8px;
+}
+
+.tweet-actions {
+    display: flex;
+    gap: 24px;
+    margin-top: 12px;
+    padding-top: 8px;
+    border-top: 1px solid #e1e8ed;
+}
+
+.tweet-action-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #657786;
+    font-size: 14px;
+    transition: color 0.2s ease;
+}
+
+.tweet-action-btn:hover {
+    color: #1da1f2; /* Twitter blue */
+}
+
+.tweet-action-icon {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+}
+
+.like-btn.liked {
+    color: #e0245e; /* Twitter like red */
+}
+
+.comment-btn.commented {
+    color: #1da1f2; /* Twitter blue */
+}
+
+.tweet-action-count {
+    font-size: 13px;
+}
+
+
+/* Base Button Style */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: 500;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    user-select: none;
+}
+
+/* Primary Button (Blue) */
+.btn-primary {
+    background-color: #0d6efd; /* Bootstrap-like blue */
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #0b5ed7;
+    box-shadow: 0 2px 8px rgba(11, 94, 215, 0.3);
+}
+
+.btn-primary:active {
+    background-color: #0a58ca;
+    transform: translateY(1px);
+}
+
+.btn-primary:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(13, 110, 253, 0.25);
+}
+.btn-primary:disabled {
+    background-color: #86b7fe;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+.btn-sm {
+    padding: 8px 16px;
+    font-size: 14px;
+}
+.btn-lg {
+    padding: 12px 24px;
+    font-size: 18px;
+}
+
+/* Card Container */
+  .form-card {
+    max-width: 600px;
+    margin: 20px auto;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+
+  /* Header */
+  .form-header {
+    padding: 16px;
+    border-bottom: 1px solid #e5e5e5;
+  }
+
+  .form-header h2 {
+    margin: 0;
+    color: #1d2129;
+    font-size: 20px;
+    font-weight: 600;
+  }
+
+  /* Form Styling */
+  .post-form {
+    padding: 16px;
+  }
+
+  .form-group {
+    margin-bottom: 16px;
+  }
+
+  .form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #606770;
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  /* Text Input Styling */
+  .form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #dddfe2;
+    border-radius: 6px;
+    font-size: 16px;
+    resize: vertical;
+    min-height: 100px;
+    transition: border-color 0.2s;
+  }
+
+  .form-group textarea:focus {
+    border-color: #1877f2;
+    outline: none;
+    box-shadow: 0 0 0 2px #e7f3ff;
+  }
+
+  /* File Upload Styling */
+  .file-upload {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .file-upload input[type="file"] {
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+  }
+
+  .upload-text {
+    display: inline-block;
+    padding: 8px 12px;
+    background: #f5f6f7;
+    border: 1px dashed #dddfe2;
+    border-radius: 6px;
+    color: #4b4f56;
+  }
+
+  .upload-icon {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%234b4f56'%3E%3Cpath d='M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z'/%3E%3C/svg%3E") no-repeat center;
+    margin-right: 8px;
+    vertical-align: middle;
+  }
+
+  /* Submit Button */
+  .btn-submit {
+    background: #1877f2;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 24px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+
+  .btn-submit:hover {
+    background: #166fe5;
+  }
+
+
+  /* Dropdown Container */
+.post-dropdown {
+    position: relative;
+    display: inline-block;
+    margin-left: auto; /* Push to the right */
+}
+
+/* Three dots button */
+.post-dropdown-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0 8px;
+    color: #657786;
+    font-size: 18px;
+    outline: none;
+}
+
+.post-dropdown-toggle:hover {
+    color: #1da1f2;
+}
+
+/* Dropdown Menu */
+.post-dropdown-menu {
+    position: absolute;
+    right: 0;
+    top: 100%;
+    background: white;
+    border: 1px solid #e1e8ed;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    min-width: 120px;
+    padding: 8px 0;
+    z-index: 100;
+    display: none;
+}
+
+.post-dropdown-menu.show {
+    display: block;
+}
+
+/* Dropdown Items */
+.dropdown-item {
+    display: block;
+    padding: 8px 16px;
+    color: #1c1e21;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.dropdown-item:hover {
+    background-color: #f5f8fa;
+}
+
+ .file-upload {
+        margin: 20px 0;
+        position: relative;
+    }
+    
+    #id_image {
+        display: none;
+    }
+    
+    .upload-label {
+        cursor: pointer;
+    }
+    
+    .image-preview {
+        max-width: 100%;
+        max-height: 300px;
+        border-radius: 8px;
+        display: block;
+    }
+    
+    .image-upload-area {
+        width: 100%;
+        padding: 40px 20px;
+        border: 2px dashed #ddd;
+        border-radius: 8px;
+        text-align: center;
+        transition: all 0.3s ease;
+    }
+    
+    .image-upload-area:hover {
+        border-color: #1da1f2;
+    }
+    
+    .fa-cloud-upload-alt {
+        font-size: 40px;
+        color: #657786;
+        margin-bottom: 10px;
+    }
+    
+    .upload-instruction {
+        display: block;
+        color: #657786;
+        font-size: 16px;
+    }
+    
+    .file-name {
+        display: block;
+        margin-top: 10px;
+        color: #1da1f2;
+        font-weight: bold;
+        word-break: break-all;
+    }
