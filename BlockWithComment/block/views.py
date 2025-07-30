@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Post
-from .forms import PostForm
+from .forms import PostForm , ProfileUdateForm
 from django.http import HttpResponse
 from django.utils.text import slugify
 # Create your views here.
@@ -12,6 +12,8 @@ def home(request):
 
 def post_list(request):
     posts = Post.objects.order_by('-updated_at')
+    # posts = Post.objects.select_related('author__profile').order_by('-updated_at')
+    # posts = Post.objects.select_related('author').prefetch_related('author__profile').order_by('-updated_at')
     return render(request, 'block/post_list.html', {'posts': posts})
 
 from django.utils.text import slugify
@@ -65,3 +67,18 @@ def post_edit(request, post_id):
 
 def post_delete(request, post_id):
     return HttpResponse(" post delete ")
+
+
+def profile(request):
+    # return HttpResponse(" profile page ")
+    if  request.method == 'POST':
+        form = ProfileUdateForm(request.POST,
+                                 request.FILES,
+                                 instance=request.user.profile)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Profile updated successfully!")
+            return redirect('root:home')
+    else:
+        form = ProfileUdateForm(instance=request.user.profile)
+    return render(request, 'block/profile.html', {'form': form})

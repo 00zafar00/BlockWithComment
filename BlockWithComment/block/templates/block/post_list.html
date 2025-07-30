@@ -2,7 +2,12 @@
 
 {% block content %}
   <!-- <h1>Post</h1> -->
-<a href="{% url 'post:post_create' %}" class="btn btn-primary">Create Post</a>
+   <a href="{% url 'post:post_create' %}" class="floating-create-btn" title="Create Post">
+        <div class="plus-container">
+            <div class="plus-line horizontal"></div>
+            <div class="plus-line vertical"></div>
+        </div>
+    </a>
   <ul>
     {% for post in posts %}
         <li class="tweet">
