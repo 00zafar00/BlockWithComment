@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="profile-container">
+    <div class="profile-card">
+        <div class="profile-header">
+            <h2>{{ user.username }}'s Profile</h2>
+        </div>
+        
+        <div class="profile-pic-container">
+            <img src="{{ user.profile.avatar.url }}" 
+                 alt="Profile Picture" 
+                 class="profile-pic"
+                 id="profile-pic-preview">
+        </div>
+        
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            
+            <div class="form-group">
+                <label>Change Profile Picture</label>
+                <div class="custom-file-upload">
+                    {{ form.avatar }}
+                    <span class="file-info" id="file-info">
+                        {% if user.profile.avatar %}
+                            Current: {{ user.profile.avatar.name }}
+                        {% else %}
+                            Select an image
+                        {% endif %}
+                    </span>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                {{ form.bio.label_tag }}
+                {{ form.bio }}
+            </div>
+            
+            <button type="submit" class="btn btn-primary">Update Profile</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

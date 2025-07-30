@@ -161,3 +161,58 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    const navbar = document.querySelector('.navbar');
+    let lastScrollY = window.scrollY;
+    const scrollThreshold = 10; // Minimum scroll distance to trigger hide/show
+    
+    window.addEventListener('scroll', function() {
+        const currentScrollY = window.scrollY;
+        
+        // At top of page - always show navbar
+        if (currentScrollY <= 0) {
+            navbar.style.transform = 'translateY(0)';
+            lastScrollY = currentScrollY;
+            return;
+        }
+        
+        // Only trigger if scrolled enough pixels
+        if (Math.abs(currentScrollY - lastScrollY) < scrollThreshold) {
+            return;
+        }
+        
+        // Scrolling down - hide navbar
+        if (currentScrollY > lastScrollY && currentScrollY > navbar.offsetHeight) {
+            navbar.style.transform = 'translateY(-100%)';
+        } 
+        // Scrolling up - show navbar
+        else {
+            navbar.style.transform = 'translateY(0)';
+        }
+        
+        lastScrollY = currentScrollY;
+    });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    const fileInput = document.getElementById('id_profile_pic');
+    const fileInfo = document.getElementById('file-info');
+    const preview = document.getElementById('profile-pic-preview');
+    
+    if (fileInput) {
+        fileInput.addEventListener('change', function() {
+            if (this.files && this.files[0]) {
+                fileInfo.textContent = "Selected: " + this.files[0].name;
+                
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    preview.src = e.target.result;
+                }
+                reader.readAsDataURL(this.files[0]);
+            }
+        });
+    }
+});
